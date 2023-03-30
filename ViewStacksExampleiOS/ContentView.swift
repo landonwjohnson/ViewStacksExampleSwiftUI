@@ -16,17 +16,24 @@ struct ImageInfo:  View {
     var color: Color;
     var body: some View {
         ZStack() {
-            Color("TextDrop").edgesIgnoringSafeArea(.all)
-                .frame(height: 80)
-                .cornerRadius(7)
+            
             
             ZStack{
                 Text(title)
                     .foregroundColor(color)
-                    .font(.system(size: 28))
-                    .shadow(color: Color("TextDrop"), radius: 8)
+                    .font(.system(size: 25))
+                    .shadow(color: Color("TextDrop"), radius: 0)
                     .padding(10)
+                    .background(.ultraThickMaterial)
+                    .cornerRadius(7)
+
+
             }
+
+                .frame(height: 80)
+                .shadow(color: Color("TextDrop"), radius: 10)
+
+               
         }
     }
 }
@@ -34,12 +41,12 @@ struct ImageInfo:  View {
 struct ExampleOne: View {
     var body: some View {
         VStack() {
-            Image("LightPaintingOne")
+            Image("ImageNameInAssets")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(7)
             
-            ImageInfo(title: "Light Painting", color: Color.white)
+            ImageInfo(title: "Light Painting", color: Color.black)
         }
     }
 }
@@ -50,12 +57,12 @@ struct ExampleTwo: View {
             // By default the views inside the HStack would
             // render starting from the left
             // Image would render first
-            Image("LightPaintingOne")
+            Image("ImageNameInAssets")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(7)
             
-            ImageInfo(title: "Light Painting", color: Color.white)
+            ImageInfo(title: "Light Painting", color: Color.black)
         }
     }
 }
@@ -64,13 +71,13 @@ struct ExampleThree: View {
     var body: some View {
         ZStack() {
             // Image would render first (Underneath)
-            Image("LightPaintingTwo")
+            Image("ImageNameInAssets")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(7)
             
             // ImageInfo would render on top
-            ImageInfo(title: "Light Painting", color: Color.white)
+            ImageInfo(title: "Light Painting", color: Color.black)
         }
     }
 }
